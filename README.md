@@ -11,4 +11,4 @@ Server will be listening on port 8000 http://localhost:8000.
 
 Install rethinkdb and launch it on commandline: rethinkdb
 Will be listening on port 8080 http://localhost:8080/
-on the dashboard create dabtabase: awesome_whiteboard , table: drawings
+on the dashboard create dabtabase: awesome_whiteboard , table: drawings, lines
