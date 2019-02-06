@@ -4,32 +4,32 @@ import { publishLine, subscribeToDrawingLines } from './api';
 
 class Drawing extends Component {
   state = {
-    lines: [],
-  }
+    lines: []
+  };
 
   componentDidMount() {
-    subscribeToDrawingLines(this.props.drawing.id, (linesEvent) => {
-      this.setState((prevState) => {
+    subscribeToDrawingLines(this.props.drawing.id, linesEvent => {
+      this.setState(prevState => {
         return {
-          lines: [...prevState.lines, ...linesEvent.lines],
+          lines: [...prevState.lines, ...linesEvent.lines]
         };
       });
     });
   }
 
-  handleDraw = (line) => {
+  handleDraw = line => {
     publishLine({
       drawingId: this.props.drawing.id,
-      line,
+      line
     });
-  }
+  };
 
   render() {
-    return (this.props.drawing) ? (
-      <div
-        className="Drawing"
-      >
-        <div className="Drawing-title">{this.props.drawing.name} ({this.state.lines.length} lines)</div>
+    return this.props.drawing ? (
+      <div className="Drawing">
+        <div className="Drawing-title">
+          {this.props.drawing.name} ({this.state.lines.length} lines)
+        </div>
         <Canvas
           onDraw={this.handleDraw}
           drawingEnabled={true}

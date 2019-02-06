@@ -3,7 +3,7 @@ import { subscribeToConnectionEvent } from './api';
 
 class Connection extends Component {
   state = {
-    connectionState: 'connecting',
+    connectionState: 'connecting'
   };
 
   constructor(props) {
@@ -11,25 +11,24 @@ class Connection extends Component {
     subscribeToConnectionEvent(({ state: connectionState, port }) => {
       this.setState({
         connectionState,
-        port,
+        port
       });
     });
   }
-
 
   render() {
     let content = null;
 
     if (this.state.connectionState === 'disconnected') {
       content = (
-        <div className="Connection-error">We've lost connection to the server...</div>
+        <div className="Connection-error">
+          We've lost connection to the server...
+        </div>
       );
     }
 
     if (this.state.connectionState === 'connecting') {
-      content = (
-        <div>Connecting...</div>
-      );
+      content = <div>Connecting...</div>;
     }
 
     return (

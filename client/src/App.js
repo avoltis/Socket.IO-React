@@ -6,23 +6,20 @@ import Drawing from './Drawing';
 import Connection from './Connection';
 
 class App extends Component {
-  state = {
-  };
+  state = {};
 
-  selectDrawing = (drawing) => {
+  selectDrawing = drawing => {
     this.setState({
-      selectedDrawing: drawing,
+      selectedDrawing: drawing
     });
-  }
+  };
 
   render() {
     let ctrl = (
       <div>
         <DrawingForm />
 
-        <DrawingList
-          selectDrawing={this.selectDrawing}
-        />
+        <DrawingList selectDrawing={this.selectDrawing} />
       </div>
     );
 
@@ -43,7 +40,7 @@ class App extends Component {
 
         <Connection />
 
-        { ctrl }
+        {ctrl}
       </div>
     );
   }

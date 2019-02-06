@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import {
-  createDrawing,
-} from './api';
+import { createDrawing } from './api';
 
 class DrawingForm extends Component {
   state = {
-    drawingName: '',
-  }
+    drawingName: ''
+  };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     createDrawing(this.state.drawingName);
     this.setState({
-      drawingName: '',
+      drawingName: ''
     });
-  }
+  };
 
   render() {
     return (
@@ -23,15 +21,14 @@ class DrawingForm extends Component {
           <input
             type="text"
             value={this.state.drawingName}
-            onChange={(evt) => this.setState({ drawingName: evt.target.value })}
+            onChange={evt => this.setState({ drawingName: evt.target.value })}
             placeholder="Drawing name"
             className="Form-drawingInput"
             required
           />
-          <button
-            type="submit"
-            className="Form-button"
-          >Create</button>
+          <button type="submit" className="Form-button">
+            Create
+          </button>
         </form>
       </div>
     );
